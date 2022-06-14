@@ -9,31 +9,53 @@
   display: flex;
   justify-content: center;
   flex-basis: 25%;
-  color: var(--white);
   font-size: 5rem;
-  margin-top: 20px;
+  margin-top: -20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
 }
 .navigation {
   display: flex;
-  justify-content: center;
   flex-basis: 50%;
+  justify-content: center;
 }
 .navigation ul {
   display: flex;
   flex-basis: 100%;
-  color: var(--white);
   list-style: none;
 }
-.navigation ul li {
+.navigation ul li a {
   display: flex;
   justify-content: center;
-  width: 80px;
+  width: 90px;
   font-size: 2rem;
   margin: 0 15px;
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
 }
 .authBtns {
   display: flex;
-  justify-content: center;
   flex-basis: 25%;
+  justify-content: center;
   min-width: 220px;
+}
+.authBtn {
+  padding: 10px 30px;
+  border: 0;
+  color: var(--white);
+  background-color: var(--green);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.authBtn:hover {
+  background-color: var(--dark-green);
+}
+.activePageUnderline {
+  padding-bottom: 5px;
+  border-bottom: 3px solid white;
+}
+.navArrow {
+  margin: 2px 0 0 2px;
 }
