@@ -1,0 +1,6 @@
+.registerForm {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: center;
+  margin-top: 200px;
+}

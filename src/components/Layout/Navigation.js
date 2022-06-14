@@ -44,7 +44,9 @@ const Navigation = () => {
         </ul>
       </nav>
       <div className={styles.authBtns}>
-        <button className={styles.authBtn}>Zaloguj się</button>
+        <Link to="logowanie">
+          <button className={styles.authBtn}>Zaloguj się</button>
+        </Link>
       </div>
     </header>
   );

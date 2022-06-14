@@ -1,0 +1,26 @@
+.headingText {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.headingWrapper {
+  display: flex;
+  flex-basis: 680px;
+  flex-direction: column;
+  text-align: center;
+  font-size: 6rem;
+  line-height: 110px;
+  letter-spacing: 3px;
+  color: var(--white);
+  font-weight: normal;
+}
+.headingFirstWord {
+  padding-bottom: 5px;
+  border-bottom: 3px solid white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.space {
+  display: inline;
+}

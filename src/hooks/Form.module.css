@@ -1,0 +1,30 @@
+.inputName {
+  margin-bottom: 7px;
+  color: var(--white);
+  font-size: 18px;
+}
+.form {
+  width: 60%;
+  overflow: hidden;
+}
+.inputBtns{
+  width: 100%;
+  text-align: center;
+}
+.inputBtn {
+  width: 98.3%;
+  height: 50px;
+  margin-top: 45px;
+  background-color: #e74c3c;
+  border: 0;
+  color: white;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.inputError {
+  color: var(--white);
+  font-size: 13px;
+  font-style: italic;
+}
