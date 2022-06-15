@@ -1,0 +1,25 @@
+.secondHeading {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.headingDetails {
+  display: flex;
+  flex-basis: 73%;
+  flex-direction: column;
+  padding-left: 40px;
+  color: var(--white);
+  font-size: 4rem;
+}
+.headingDetail {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #fff;
+}
+.headingIcon {
+  font-size: 7rem;
+  margin-right: 15px;
+}

@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../store/auth';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Form.module.css';
 
 const Form = ({ type }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const enteredEmail = useSelector((state) => state.enteredEmail);
   const enteredEmailTouched = useSelector((state) => state.enteredEmailTouched);
@@ -49,6 +51,40 @@ const Form = ({ type }) => {
 
     dispatch(authActions.enteredPassword(''));
     dispatch(authActions.enteredPasswordTouchedFalse());
+
+    if (type === 'login') {
+      dispatch(authActions.logged());
+    }
+    fetch(
+      `${
+        type === 'register'
+          ? 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAaV3REfzAWxr800izdSZGq5XppXStemlE'
+          : 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAaV3REfzAWxr800izdSZGq5XppXStemlE'
+      }`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          email: enteredEmail,
+          password: enteredPassword,
+          returnSecureToken: true,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    ).then((res) => {
+      if (res.ok) {
+        if (type === 'register') {
+          navigate('/logowanie');
+        } else {
+          navigate('/edudor');
+        }
+      } else {
+        return res.json().then((data) => {
+          console.log(data);
+        });
+      }
+    });
   };
   return (
     <form className={styles.form} onSubmit={submitHandler}>

@@ -5,6 +5,7 @@ const initialState = {
   enteredEmailTouched: false,
   enteredPassword: '',
   enteredPasswordTouched: false,
+  logged: false,
 };
 
 const auth = createSlice({
@@ -28,6 +29,9 @@ const auth = createSlice({
     },
     enteredPasswordTouchedFalse(state) {
       state.enteredPasswordTouched = false;
+    },
+    logged(state) {
+      state.logged = !state.logged;
     },
   },
 });

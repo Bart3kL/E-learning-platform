@@ -1,11 +1,15 @@
+import { useSelector } from 'react-redux';
+
 import Heading from '../components/Home/Heading';
+import SecondHeading from '../components/Home/SecondHeading';
 import RegisterForm from '../components/Home/RegisterForm';
 
 const HomePage = () => {
+  const logged = useSelector((state) => state.logged);
   return (
     <section className="pageWrapper">
       <Heading />
-      <RegisterForm />
+      {!logged ? <RegisterForm /> : <SecondHeading />}
     </section>
   );
 };
