@@ -99,7 +99,7 @@ const Form = ({ type }) => {
     <>
       {modalWindow ? <ModalWindow /> : ''}
       <form className={styles.form} onSubmit={submitHandler}>
-        <label htmlFor="email">
+        <label htmlFor="email" className='firstAnimation'>
           <p className={styles.inputName}>Adres e-mail</p>
           <input
             type="email"
@@ -113,7 +113,7 @@ const Form = ({ type }) => {
           )}
         </label>
 
-        <label htmlFor="password">
+        <label htmlFor="password" className='secondAnimation'> 
           <p className={styles.inputName}>Password</p>
           <input
             type="password"
@@ -128,7 +128,7 @@ const Form = ({ type }) => {
             </p>
           )}
         </label>
-        <div className={styles.inputBtns}>
+        <div className={`${styles.inputBtns} secondAnimation`}>
           {type === 'register' ? (
             <button className={styles.inputBtn} disabled={!formIsValid}>
               ZAREJESTRUJ SIĘ

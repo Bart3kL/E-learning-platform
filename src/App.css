@@ -4,7 +4,7 @@
   --dark-green: #229955;
   --very-dark-blue: #323c46;
   --light-gray: #cccccc;
-  --strong-red: #c0392b
+  --strong-red: #c0392b;
 }
 button:disabled,
 button:disabled:hover,
@@ -37,6 +37,18 @@ input {
   animation: scaleAnimation 1.5s both;
   cursor: pointer;
 }
+.firstAnimation{
+  animation: slide-in-bottom 0.5s both;
+}
+.secondAnimation{
+  animation: slide-in-bottom 1s both;
+}
+.thirdAnimation {
+  animation: slide-in-bottom 1.5s both;
+}
+.fourthAnimation {
+  animation: slide-in-bottom 2s both;
+}
 @keyframes scaleAnimation-off {
   0% {
     transform: scale3d(1, 1, 1);
@@ -58,5 +70,15 @@ input {
   }
   100% {
     transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(45px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

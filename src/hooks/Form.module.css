@@ -4,10 +4,14 @@
   font-size: 18px;
 }
 .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
   width: 60%;
   overflow: hidden;
 }
-.inputBtns{
+.inputBtns {
   width: 100%;
   text-align: center;
 }
