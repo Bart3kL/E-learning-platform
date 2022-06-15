@@ -1,20 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { authActions } from '../store/auth';
 import { useNavigate } from 'react-router-dom';
 
+import ModalWindow from '../components/Layout/ModalWindow';
+import { authActions, modalActions } from '../store/auth';
 import styles from './Form.module.css';
 
 const Form = ({ type }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const enteredEmail = useSelector((state) => state.enteredEmail);
-  const enteredEmailTouched = useSelector((state) => state.enteredEmailTouched);
-
-  const enteredPassword = useSelector((state) => state.enteredPassword);
-  const enteredPasswordTouched = useSelector(
-    (state) => state.enteredPasswordTouched
+  const enteredEmail = useSelector((state) => state.auth.enteredEmail);
+  const enteredEmailTouched = useSelector(
+    (state) => state.auth.enteredEmailTouched
   );
+  const enteredPassword = useSelector((state) => state.auth.enteredPassword);
+  const enteredPasswordTouched = useSelector(
+    (state) => state.auth.enteredPasswordTouched
+  );
+
+  const modalWindow = useSelector((state) => state.modal.modalWindow);
 
   const enteredEmailIsValid = enteredEmail.includes('@');
   const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
@@ -28,7 +32,6 @@ const Form = ({ type }) => {
   if (enteredEmailIsValid && enteredPasswordIsValid) {
     formIsValid = true;
   }
-
   const emailInputChangeHandler = (e) => {
     dispatch(authActions.enteredEmail(e.target.value));
   };
@@ -52,9 +55,7 @@ const Form = ({ type }) => {
     dispatch(authActions.enteredPassword(''));
     dispatch(authActions.enteredPasswordTouchedFalse());
 
-    if (type === 'login') {
-      dispatch(authActions.logged());
-    }
+
     fetch(
       `${
         type === 'register'
@@ -75,60 +76,71 @@ const Form = ({ type }) => {
     ).then((res) => {
       if (res.ok) {
         if (type === 'register') {
+          dispatch(modalActions.showModalWindow());
+          dispatch(
+            modalActions.modalWindowText(
+              'Konto założone! Możesz się teraz zalogować.'
+            )
+          );
           navigate('/logowanie');
         } else {
+          dispatch(authActions.logged());
           navigate('/edudor');
         }
       } else {
         return res.json().then((data) => {
-          console.log(data);
+          dispatch(modalActions.showModalWindow());
+          dispatch(modalActions.modalWindowText(data.error.message));
         });
       }
     });
   };
   return (
-    <form className={styles.form} onSubmit={submitHandler}>
-      <label htmlFor="email">
-        <p className={styles.inputName}>Adres e-mail</p>
-        <input
-          type="email"
-          id="email"
-          value={enteredEmail}
-          onChange={emailInputChangeHandler}
-          onBlur={emailInputBlurHandler}
-        />
-        {emailInputIsInvalid && (
-          <p className={styles.inputError}>Please enter a valid email.</p>
-        )}
-      </label>
+    <>
+      {modalWindow ? <ModalWindow /> : ''}
+      <form className={styles.form} onSubmit={submitHandler}>
+        <label htmlFor="email">
+          <p className={styles.inputName}>Adres e-mail</p>
+          <input
+            type="email"
+            id="email"
+            value={enteredEmail}
+            onChange={emailInputChangeHandler}
+            onBlur={emailInputBlurHandler}
+          />
+          {emailInputIsInvalid && (
+            <p className={styles.inputError}>Please enter a valid email.</p>
+          )}
+        </label>
 
-      <label htmlFor="password">
-        <p className={styles.inputName}>Password</p>
-        <input
-          type="password"
-          id="password"
-          value={enteredPassword}
-          onChange={passwordInputChangeHandler}
-          onBlur={passwordInputBlurHandler}
-        />
-        {passwordInputIsInvalid && (
-          <p className={styles.inputError}>
-            Password must be at least 8 characters.
-          </p>
-        )}
-      </label>
-      <div className={styles.inputBtns}>
-        {type === 'register' ? (
-          <button className={styles.inputBtn} disabled={!formIsValid}>
-            ZAREJESTRUJ SIĘ
-          </button>
-        ) : (
-          <button className={styles.inputBtn} disabled={!formIsValid}>
-            ZALOGUJ SIĘ
-          </button>
-        )}
-      </div>
-    </form>
+        <label htmlFor="password">
+          <p className={styles.inputName}>Password</p>
+          <input
+            type="password"
+            id="password"
+            value={enteredPassword}
+            onChange={passwordInputChangeHandler}
+            onBlur={passwordInputBlurHandler}
+          />
+          {passwordInputIsInvalid && (
+            <p className={styles.inputError}>
+              Password must be at least 8 characters.
+            </p>
+          )}
+        </label>
+        <div className={styles.inputBtns}>
+          {type === 'register' ? (
+            <button className={styles.inputBtn} disabled={!formIsValid}>
+              ZAREJESTRUJ SIĘ
+            </button>
+          ) : (
+            <button className={styles.inputBtn} disabled={!formIsValid}>
+              ZALOGUJ SIĘ
+            </button>
+          )}
+        </div>
+      </form>
+    </>
   );
 };
 

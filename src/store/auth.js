@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const initialState = {
+const authState = {
   enteredEmail: '',
   enteredEmailTouched: false,
   enteredPassword: '',
@@ -10,7 +10,7 @@ const initialState = {
 
 const auth = createSlice({
   name: 'counter',
-  initialState: initialState,
+  initialState: authState,
   reducers: {
     enteredEmail(state, action) {
       state.enteredEmail = action.payload;
@@ -36,9 +36,31 @@ const auth = createSlice({
   },
 });
 
+const modalState = {
+  modalWindow: false,
+  modalWindowText: ''
+};
+
+const modal = createSlice({
+  name: 'modal',
+  initialState: modalState,
+  reducers: {
+    showModalWindow(state) {
+      state.modalWindow = true;
+    },
+    hideModalWindow(state) {
+      state.modalWindow = false;
+    },
+    modalWindowText(state, action) {
+      state.modalWindowText = action.payload;
+    },
+  },
+});
+
 const store = configureStore({
-  reducer: auth.reducer,
+  reducer: { auth: auth.reducer, modal: modal.reducer },
 });
 
 export const authActions = auth.actions;
+export const modalActions = modal.actions;
 export default store;

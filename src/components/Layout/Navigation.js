@@ -1,14 +1,16 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../../store/auth';
+
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
-  const logged = useSelector((state) => state.logged);
+  const logged = useSelector((state) => state.auth.logged);
 
   const logoutHandler = () => {
     dispatch(authActions.logged());
@@ -56,7 +58,11 @@ const Navigation = () => {
       <div className={styles.authBtns}>
         {!logged ? (
           <Link to="logowanie">
-            <button className={styles.authBtn}>ZALOGUJ SIĘ</button>
+            {pathname === '/logowanie' ? (
+              ''
+            ) : (
+              <button className={styles.authBtn}>ZALOGUJ SIĘ</button>
+            )}
           </Link>
         ) : (
           <button className={styles.authBtn} onClick={logoutHandler}>

@@ -1,0 +1,46 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+.modalWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  min-width: 450px;
+  text-align: justify;
+  z-index: 100;
+  transform: translate(-50%,-50%);
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0px 0px 29px -7px rgba(0, 0, 0, 1);
+}
+.modalWindowName {
+  font-size: 2rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--light-gray);
+}
+.modalWindowBtnWrapper {
+  display: flex;
+  justify-content: right;
+  padding-bottom: 20px;
+}
+.modalWindowText {
+  padding: 0 0 10px;
+  font-size: 1.5rem;
+}
+.modalWindowBtn {
+  padding: 10px 20px;
+  background-color: var(--strong-red);
+  border: 0;
+  cursor: pointer;
+  color: var(--white);
+}

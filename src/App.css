@@ -2,6 +2,9 @@
   --white: #fff;
   --green: #27ae60;
   --dark-green: #229955;
+  --very-dark-blue: #323c46;
+  --light-gray: #cccccc;
+  --strong-red: #c0392b
 }
 button:disabled,
 button:disabled:hover,
