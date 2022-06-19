@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import ContactPage from './pages/ContactPage'
 import './App.css';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Route path="slownik" />
         <Route path="gramatyka" />
         <Route path="zwroty" />
-        <Route path="kontakt" />
+        <Route path="kontakt" element={<ContactPage />} />
       </Routes>
     </Layout>
   );

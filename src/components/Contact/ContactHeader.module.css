@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  background-color: var(--white);
+  padding: 30px 10%;
+}
+.contactDetail {
+  width: 33%;
+  font-size: 2rem;
+  padding-left: 5%;
+}
+.contactIcon {
+  font-size: 4rem;
+  color: var(--very-dark-blue);
+}
+.contactName {
+  width: 120px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--very-light-gray);
+}
+.contactText {
+  font-size: 16px;
+  color: var(--dark-gray);
+  font-style: italic;
+}

@@ -3,8 +3,12 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 const authState = {
   enteredEmail: '',
   enteredEmailTouched: false,
+  enteredName: '',
+  enteredNameTouched: false,
   enteredPassword: '',
   enteredPasswordTouched: false,
+  enteredMessage: '',
+  enteredMessageTouched: false,
   logged: false,
 };
 
@@ -29,6 +33,24 @@ const auth = createSlice({
     },
     enteredPasswordTouchedFalse(state) {
       state.enteredPasswordTouched = false;
+    },
+    enteredName(state, action) {
+      state.enteredName = action.payload;
+    },
+    enteredNameTouchedTrue(state) {
+      state.enteredNameTouched = true;
+    },
+    enteredNameTouchedFalse(state) {
+      state.enteredNameTouched = false;
+    },
+    enteredMessage(state, action) {
+      state.enteredMessage = action.payload;
+    },
+    enteredMessageTouchedTrue(state) {
+      state.enteredMessageTouched = true;
+    },
+    enteredMessageTouchedFalse(state) {
+      state.enteredMessageTouched = false;
     },
     logged(state) {
       state.logged = !state.logged;

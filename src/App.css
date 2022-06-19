@@ -4,7 +4,10 @@
   --dark-green: #229955;
   --very-dark-blue: #323c46;
   --light-gray: #cccccc;
+  --very-light-gray: #d9d9d9;
   --strong-red: #c0392b;
+  --dark-gray: #777777;
+  --very-dark-blue: #26293c;
 }
 button:disabled,
 button:disabled:hover,
@@ -27,6 +30,13 @@ input {
   display: flex;
   min-height: 85.5vh;
   padding: 0 5%;
+}
+.pageContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 85.5vh;
+  background-color: #F5F5F5;
 }
 .textAnimation {
   display: inline-block;

@@ -1,0 +1,27 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  width: 50%;
+  height: 100%;
+  color: black;
+}
+.formContainer form label p:nth-last-child(1) {
+  color: var(--dark-gray);
+  font-size: 13px;
+  font-style: italic;
+}
+.formContainer form label p {
+  margin-bottom: 7px;
+  color: var(--very-dark-blue);
+  font-size: 18px;
+  font-weight: bold;
+}
+.formContainer input {
+  color: var(--dark-gray);
+  font-size: 14px;
+  opacity: 1;
+  outline: none;
+  border: 0;
+}
