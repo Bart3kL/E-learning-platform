@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { authActions, modalActions, spinnerActions } from '../store/auth';
+
 import ModalWindow from '../components/Layout/ModalWindow';
-import { authActions, modalActions } from '../store/auth';
+import Spinner from '../components/Layout/Spinner';
+
 import styles from './Form.module.css';
 
 const Form = ({ type }) => {
@@ -19,6 +22,8 @@ const Form = ({ type }) => {
   );
 
   const modalWindow = useSelector((state) => state.modal.modalWindow);
+
+  const spinner = useSelector((state) => state.spinner.activation);
 
   const enteredEmailIsValid = enteredEmail.includes('@');
   const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
@@ -55,7 +60,7 @@ const Form = ({ type }) => {
     dispatch(authActions.enteredPassword(''));
     dispatch(authActions.enteredPasswordTouchedFalse());
 
-
+    dispatch(spinnerActions.activeSpinner())
     fetch(
       `${
         type === 'register'
@@ -75,6 +80,7 @@ const Form = ({ type }) => {
       }
     ).then((res) => {
       if (res.ok) {
+        dispatch(spinnerActions.deactivateSpinner())
         if (type === 'register') {
           dispatch(modalActions.showModalWindow());
           dispatch(
@@ -89,6 +95,7 @@ const Form = ({ type }) => {
         }
       } else {
         return res.json().then((data) => {
+          dispatch(spinnerActions.deactivateSpinner())
           dispatch(modalActions.showModalWindow());
           dispatch(modalActions.modalWindowText(data.error.message));
         });
@@ -98,48 +105,52 @@ const Form = ({ type }) => {
   return (
     <>
       {modalWindow ? <ModalWindow /> : ''}
-      <form className={styles.form} onSubmit={submitHandler}>
-        <label htmlFor="email" className='firstAnimation'>
-          <p className={styles.inputName}>Adres e-mail</p>
-          <input
-            type="email"
-            id="email"
-            value={enteredEmail}
-            onChange={emailInputChangeHandler}
-            onBlur={emailInputBlurHandler}
-          />
-          {emailInputIsInvalid && (
-            <p className={styles.inputError}>Please enter a valid email.</p>
-          )}
-        </label>
+      {spinner ? (
+        <Spinner />
+      ) : (
+        <form className={styles.form} onSubmit={submitHandler}>
+          <label htmlFor="email" className="firstAnimation">
+            <p className={styles.inputName}>Adres e-mail</p>
+            <input
+              type="email"
+              id="email"
+              value={enteredEmail}
+              onChange={emailInputChangeHandler}
+              onBlur={emailInputBlurHandler}
+            />
+            {emailInputIsInvalid && (
+              <p className={styles.inputError}>Please enter a valid email.</p>
+            )}
+          </label>
 
-        <label htmlFor="password" className='secondAnimation'> 
-          <p className={styles.inputName}>Password</p>
-          <input
-            type="password"
-            id="password"
-            value={enteredPassword}
-            onChange={passwordInputChangeHandler}
-            onBlur={passwordInputBlurHandler}
-          />
-          {passwordInputIsInvalid && (
-            <p className={styles.inputError}>
-              Password must be at least 8 characters.
-            </p>
-          )}
-        </label>
-        <div className={`${styles.inputBtns} secondAnimation`}>
-          {type === 'register' ? (
-            <button className={styles.inputBtn} disabled={!formIsValid}>
-              ZAREJESTRUJ SIĘ
-            </button>
-          ) : (
-            <button className={styles.inputBtn} disabled={!formIsValid}>
-              ZALOGUJ SIĘ
-            </button>
-          )}
-        </div>
-      </form>
+          <label htmlFor="password" className="secondAnimation">
+            <p className={styles.inputName}>Password</p>
+            <input
+              type="password"
+              id="password"
+              value={enteredPassword}
+              onChange={passwordInputChangeHandler}
+              onBlur={passwordInputBlurHandler}
+            />
+            {passwordInputIsInvalid && (
+              <p className={styles.inputError}>
+                Password must be at least 8 characters.
+              </p>
+            )}
+          </label>
+          <div className={`${styles.inputBtns} secondAnimation`}>
+            {type === 'register' ? (
+              <button className={styles.inputBtn} disabled={!formIsValid}>
+                ZAREJESTRUJ SIĘ
+              </button>
+            ) : (
+              <button className={styles.inputBtn} disabled={!formIsValid}>
+                ZALOGUJ SIĘ
+              </button>
+            )}
+          </div>
+        </form>
+      )}
     </>
   );
 };

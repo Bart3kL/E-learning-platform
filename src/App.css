@@ -37,10 +37,10 @@ input {
   animation: scaleAnimation 1.5s both;
   cursor: pointer;
 }
-.firstAnimation{
+.firstAnimation {
   animation: slide-in-bottom 0.5s both;
 }
-.secondAnimation{
+.secondAnimation {
   animation: slide-in-bottom 1s both;
 }
 .thirdAnimation {

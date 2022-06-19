@@ -38,7 +38,7 @@ const auth = createSlice({
 
 const modalState = {
   modalWindow: false,
-  modalWindowText: ''
+  modalWindowText: '',
 };
 
 const modal = createSlice({
@@ -56,11 +56,31 @@ const modal = createSlice({
     },
   },
 });
+const spinnerState = {
+  activation: false,
+};
+const spinner = createSlice({
+  name: 'spinner',
+  initialState: spinnerState,
+  reducers: {
+    activeSpinner(state) {
+      state.activation = true;
+    },
+    deactivateSpinner(state) {
+      state.activation = false;
+    },
+  },
+});
 
 const store = configureStore({
-  reducer: { auth: auth.reducer, modal: modal.reducer },
+  reducer: {
+    auth: auth.reducer,
+    modal: modal.reducer,
+    spinner: spinner.reducer,
+  },
 });
 
 export const authActions = auth.actions;
 export const modalActions = modal.actions;
+export const spinnerActions = spinner.actions;
 export default store;
