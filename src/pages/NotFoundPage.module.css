@@ -1,0 +1,33 @@
+.notFoundContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--white);
+    height: 100%;
+    width: 100%;
+    padding-bottom: 238px;
+  }
+  .notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+  }
+  .notFound h2 {
+    font-size: 20rem;
+    margin: 1rem 0;
+    color: var(--very-dark-blue);
+  }
+  .notFound h3 {
+    font-size: 6rem;
+    margin: 2rem 0;
+    color: var(--very-dark-grayish-blue);
+  }
+  .notFound p {
+    font-size: 2rem;
+    margin: 2rem 0;
+    color: var(--very-dark-grayish-blue);
+  }
+  
