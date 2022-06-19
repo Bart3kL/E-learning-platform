@@ -21,7 +21,7 @@ const ContactPage = () => {
     dispatch(authActions.enteredMessageTouchedFalse());
   }
   return (
-    <div className="pageContainer">
+    <div className="contactContainer">
       <ContactHeader />
       <div className={styles.formContainer}>
         <Form type="contact" />

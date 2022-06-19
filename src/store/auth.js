@@ -93,16 +93,30 @@ const spinner = createSlice({
     },
   },
 });
+const dictionaryState = {
+  levelName: '',
+};
+const dictionary = createSlice({
+  name: 'dictionary',
+  initialState: dictionaryState,
+  reducers: {
+    levelName(state, action) {
+      state.levelName = action.payload;
+    },
+  },
+});
 
 const store = configureStore({
   reducer: {
     auth: auth.reducer,
     modal: modal.reducer,
     spinner: spinner.reducer,
+    dictionary: dictionary.reducer,
   },
 });
 
 export const authActions = auth.actions;
 export const modalActions = modal.actions;
 export const spinnerActions = spinner.actions;
+export const dictionaryActions = dictionary.actions;
 export default store;
