@@ -1,18 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import Header from '../components/Layout/Header';
 import LevelCard from '../components/Dictionary/LevelCard';
-import { dictionaryActions } from '../store/auth';
 
-import styles from './DictionaryPage.module.css'
+import styles from './DictionaryPage.module.css';
 
 const DictionaryPage = ({ level }) => {
-  const dispatch = useDispatch();
-
-  const levelPageHandler = (props) => {
-    dispatch(dictionaryActions.levelName(`${props.url}`));
-  };
-
   return (
     <div className="pageContainer">
       <Header
@@ -23,10 +15,7 @@ const DictionaryPage = ({ level }) => {
         <ul className={styles.levelCards}>
           {level.map((level) => (
             <li key={level.level} className={styles.levelCard}>
-              <NavLink
-                to={`/slownik/${level.level}`}
-                onClick={() => levelPageHandler({ url: level.level })}
-              >
+              <NavLink to={`/slownik/${level.level}`}>
                 <LevelCard level={level.level} img={level.image} />
               </NavLink>
             </li>

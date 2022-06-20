@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import Header from '../components/Layout/Header';
-import CategoryCard from '../components/Dictionary/CategoryCard';
-import styles from './CategoryPage.module.css';
+import CategoryCard from '../components/Dictionary/Card';
+
 const CategoryPage = (props) => {
   const loadedMovies = [];
   for (const key in props.level.categoryName) {
@@ -18,14 +19,18 @@ const CategoryPage = (props) => {
         text="Słownik jest podzielony na kategorię."
       />
       <div className="cardContainer">
-        <ul className={styles.categoryCards}>
+        <ul className='cards'>
           {loadedMovies.map((category) => (
-            <li className={styles.categoryCard} key={category.id}>
-              <CategoryCard
-                categoryName={category.categoryName}
-                image={category.categoryImage}
-                subcategory={category.subcategory}
-              />
+          
+            <li key={category.id}>
+              <NavLink to={`./${category.id}`} className='cardLink'>
+                <CategoryCard
+                  name={category.categoryName}
+                  image={category.categoryImage}
+                  amount={category.subcategory}
+                />
+
+              </NavLink>
             </li>
           ))}
         </ul>

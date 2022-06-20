@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import DictionaryPage from './pages/DictionaryPage';
 import CategoryPage from './pages/CategoryPage';
+import SubcategoryPage from './pages/SubcategoryPage';
 import './App.css';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
   return (
     <Layout>
       <Routes>
+        {/* { */}
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/" element={<Navigate replace to="edudor" />} />
         <Route path="edudor" element={<HomePage />} />
@@ -43,11 +45,24 @@ function App() {
         <Route path="nauka" />
         <Route path="slownik" element={<DictionaryPage level={levels} />} />
         {levels.map((level) => (
-          <Route
-            path={`slownik/${level.level}`}
-            key={level.level}
-            element={<CategoryPage level={level} />}
-          />
+          <>
+            <Route
+              path={`slownik/${level.level}`}
+              key={level.level}
+              element={<CategoryPage level={level} />}
+            />
+            {Object.entries(level.categoryName).map(([key]) => (
+              <Route
+                path={`/slownik/${level.level}/${key}`}
+                key={key}
+                element={
+                  <SubcategoryPage
+                    subcategory={level.categoryName[key].podkategorie}
+                  />
+                }
+              />
+            ))}
+          </>
         ))}
         <Route path="gramatyka" />
         <Route path="zwroty" />

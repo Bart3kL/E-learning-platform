@@ -1,4 +1,4 @@
-.categoryName {
+.cardContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,11 +8,11 @@
   font-size: 3rem;
   color: var(--very-dark-desaturated-blue);
 }
-.categoryCardImage {
+.cardImage {
   width: 40%;
   padding: 5% 0;
 }
-.subcategoryCard {
+.card {
   font-style: italic;
   height: 10%;
   font-size: 1.6rem;
