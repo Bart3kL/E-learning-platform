@@ -7,7 +7,8 @@
   --very-light-gray: #d9d9d9;
   --strong-red: #c0392b;
   --dark-gray: #777777;
-  --very-dark-blue: #26293c;
+  --very-dark-desaturated-blue: #27293d;
+  --very-dark-gray: #676767;
 }
 button:disabled,
 button:disabled:hover,
@@ -104,18 +105,7 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.cards{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 15%;
-  list-style: none;
-  flex-wrap: wrap;
-}
-.card {
-  width: 280px;
-  height: 300px;
-  margin: 20px;
+  width: 100%;
+  min-height: 70vh;
 }
 

@@ -17,5 +17,6 @@
   .text {
     font-size: 16px;
     padding: 14px 0 5px;
+    color: var(--dark-gray);
     font-style: italic;
   }

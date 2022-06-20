@@ -3,11 +3,16 @@ import { useDispatch } from 'react-redux';
 import Header from '../components/Layout/Header';
 import LevelCard from '../components/Dictionary/LevelCard';
 import { dictionaryActions } from '../store/auth';
+
+import styles from './DictionaryPage.module.css'
+
 const DictionaryPage = ({ level }) => {
   const dispatch = useDispatch();
+
   const levelPageHandler = (props) => {
     dispatch(dictionaryActions.levelName(`${props.url}`));
   };
+
   return (
     <div className="pageContainer">
       <Header
@@ -15,9 +20,9 @@ const DictionaryPage = ({ level }) => {
         text="Słownik podzielony jest na poziomy."
       />
       <div className="cardContainer">
-        <ul className="cards">
+        <ul className={styles.levelCards}>
           {level.map((level) => (
-            <li key={level.level} className="card">
+            <li key={level.level} className={styles.levelCard}>
               <NavLink
                 to={`/slownik/${level.level}`}
                 onClick={() => levelPageHandler({ url: level.level })}

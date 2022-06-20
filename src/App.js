@@ -46,7 +46,7 @@ function App() {
           <Route
             path={`slownik/${level.level}`}
             key={level.level}
-            element={<CategoryPage level={levels} />}
+            element={<CategoryPage level={level} />}
           />
         ))}
         <Route path="gramatyka" />

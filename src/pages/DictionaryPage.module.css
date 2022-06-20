@@ -5,3 +5,17 @@
     height: 100%;
     background-color: #fff;
   }
+  .levelCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15%;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .levelCard {
+    width: 280px;
+    height: 262px;
+    margin: 20px 30px;
+  }
+  
