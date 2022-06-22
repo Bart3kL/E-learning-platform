@@ -39,7 +39,7 @@ input {
   flex-direction: column;
   align-items: center;
   min-height: 85.5vh;
-  background-color:var(--light-grayish-cyan);
+  background-color: var(--light-grayish-cyan);
 }
 .pageContainer {
   display: flex;
@@ -111,7 +111,7 @@ input {
   min-height: 70vh;
 }
 
-.cardLink{
+.cardLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@ input {
   transition: 0.3s;
   text-decoration: none;
 }
-.cardLink:hover{
+.cardLink:hover {
   cursor: pointer;
   border-radius: 25px;
   background-color: var(--very-light-gray);
@@ -138,7 +138,7 @@ input {
   list-style: none;
   flex-wrap: wrap;
 }
-.wordCard{
+.wordCard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,6 +150,14 @@ input {
   box-shadow: 0 8px 48px 0px rgba(0, 0, 0, 25%);
   transition: 0.3s;
 }
+.phraseCard {
+  transition: 0.3s;
+}
+.phraseCard:hover {
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: var(--very-light-gray);
+}
 .backdrop {
   position: fixed;
   top: 0;
@@ -159,4 +167,3 @@ input {
   z-index: 10;
   background: rgba(0, 0, 0, 0.75);
 }
-

@@ -6,12 +6,16 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
-import DictionaryPage from './pages/DictionaryPage';
-import CategoryPage from './pages/CategoryPage';
-import SubcategoryPage from './pages/SubcategoryPage';
-import WordsPage from './pages/WordsPage';
+// ------------------------------------------------------------------
+import DictionaryPage from './pages/Dictionary/DictionaryPage';
+import CategoryPage from './pages/Dictionary/CategoryPage';
+import SubcategoryPage from './pages/Dictionary/SubcategoryPage';
+import WordsPage from './pages/Dictionary/WordsPage';
+// ------------------------------------------------------------------
+import PhrasesPage from './pages/Phrases/PhrasesPage';
+import ListPhrasesPage from './pages/Phrases/ListPhrasesPage';
+// ------------------------------------------------------------------
 import './App.css';
-
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +40,28 @@ function App() {
         });
 
         setLevels(loadedMovies);
+      }
+    })();
+  }, [dispatch]);
+
+  const [phrases, setPhrases] = useState([]);
+  useEffect(() => {
+    (async function () {
+      const response = await fetch(
+        `https://english-page-7aa3f-default-rtdb.europe-west1.firebasedatabase.app/phrases.json`
+      );
+      const data = await response.json();
+
+      const phrases = [];
+
+      for (const key in data) {
+        phrases.push({
+          id: key,
+          phrase: data[key].name,
+          phrases: data[key].zwroty,
+        });
+
+        setPhrases(phrases);
       }
     })();
   }, [dispatch]);
@@ -85,7 +111,13 @@ function App() {
           </Fragment>
         ))}
         <Route path="gramatyka" />
-        <Route path="zwroty" />
+        <Route path="zwroty" element={<PhrasesPage phrases={phrases} />} />
+        {phrases.map((phrase) => (
+          <Route
+            path={`/zwroty/${phrase.id}`}
+            element={<ListPhrasesPage phrases={phrase.phrases} />}
+          />
+        ))}
         <Route path="kontakt" element={<ContactPage />} />
       </Routes>
     </Layout>

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-import Header from '../components/Layout/Header';
-import CategoryCard from '../components/Dictionary/Card';
+import Header from '../../components/Layout/Header';
+import CategoryCard from '../../components/Dictionary/Card';
 const SubcategoryPage = ({ subcategory }) => {
   const loadedMovies = [];
   for (const key in subcategory) {

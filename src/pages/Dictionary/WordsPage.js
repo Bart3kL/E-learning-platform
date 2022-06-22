@@ -1,5 +1,5 @@
-import Header from '../components/Layout/Header';
-import WordCard from '../components/Dictionary/WordCard';
+import Header from '../../components/Layout/Header';
+import WordCard from '../../components/Dictionary/WordCard';
 
 const WordsPage = ({ words }) => {
   const loadedMovies = [];
@@ -16,7 +16,7 @@ const WordsPage = ({ words }) => {
     <div className="pageContainer">
       <Header
         header="Lista słów"
-        text="Poniżej znajdują się słowa z wybranej kategorii."
+        text="Poniżej znajduje się wybrana lista słów."
       />
       <div className="pageContainer">
         <ul className="cards">

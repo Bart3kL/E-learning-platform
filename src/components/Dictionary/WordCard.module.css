@@ -21,6 +21,8 @@
   background-color: var(--very-dark-grayish-blue);
   width: 40px;
   height: 40px;
+  color: var(--white);
+  font-size: 2.5rem;
 }
 .actionsContainerWord {
   border-radius: 0 0 0 25px;
@@ -38,10 +40,7 @@
   cursor: pointer;
   background-color: var(--dark-green);
 }
-.icon {
-  font-size: 2.5rem;
-  color: var(--white);
-}
+
 
 .word {
   display: flex;

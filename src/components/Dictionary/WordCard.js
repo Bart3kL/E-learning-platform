@@ -37,14 +37,14 @@ const WordCard = ({ word }) => {
                 styles.actionsContainer + ' ' + styles.actionsContainerSound
               }
             >
-              <AiFillSound className={styles.icon} onClick={playSoundHandler} />
+              <AiFillSound  onClick={playSoundHandler} />
             </div>
             <div
               className={
                 styles.actionsContainer + ' ' + styles.actionsContainerWord
               }
             >
-              <AiFillPlusCircle className={styles.icon} />
+              <AiFillPlusCircle  />
             </div>
           </div>
           <div className={styles.word}>{word.word}</div>
