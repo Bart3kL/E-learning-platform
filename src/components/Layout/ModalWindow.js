@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { modalActions } from '../../store/auth';
 import { createPortal } from 'react-dom';
-
+import Backdrop from './Backdrop';
 import styles from './ModalWindow.module.css';
 
-const Backdrop = (props) => {
-  return <div className={styles.backdrop} onClick={props.onClick} />;
-};
+
 
 const Modal = () => {
   const dispatch = useDispatch();
@@ -40,7 +38,7 @@ const ModalWindow = (props) => {
   return (
     <>
       {createPortal(
-        <Backdrop onClick={closeModalWindowHandler} />,
+        <Backdrop close={closeModalWindowHandler} />,
         document.getElementById('backdrop')
       )}
       {createPortal(<Modal />, document.getElementById('overlay'))}

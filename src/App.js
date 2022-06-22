@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState, Fragment } from 'react';
 import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage';
@@ -10,18 +10,15 @@ import DictionaryPage from './pages/DictionaryPage';
 import CategoryPage from './pages/CategoryPage';
 import SubcategoryPage from './pages/SubcategoryPage';
 import WordsPage from './pages/WordsPage';
-import Spinner from './components/Layout/Spinner';
 import './App.css';
 
-import { spinnerActions } from './store/auth';
 
 function App() {
   const dispatch = useDispatch();
-  const spinner = useSelector((state) => state.spinner.activation);
+
   const [levels, setLevels] = useState([]);
   useEffect(() => {
     (async function () {
-      dispatch(spinnerActions.activeSpinner());
       const response = await fetch(
         `https://english-page-7aa3f-default-rtdb.europe-west1.firebasedatabase.app/levels.json`
       );
@@ -40,7 +37,6 @@ function App() {
 
         setLevels(loadedMovies);
       }
-      dispatch(spinnerActions.deactivateSpinner());
     })();
   }, [dispatch]);
   return (
@@ -87,8 +83,6 @@ function App() {
               </Fragment>
             ))}
           </Fragment>
-
-       
         ))}
         <Route path="gramatyka" />
         <Route path="zwroty" />
