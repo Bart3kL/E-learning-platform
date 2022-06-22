@@ -8,7 +8,9 @@
   --strong-red: #c0392b;
   --dark-gray: #777777;
   --very-dark-desaturated-blue: #27293d;
+  --very-dark-grayish-blue: #313347;
   --very-dark-gray: #676767;
+  --light-grayish-cyan: #dde4e6;
 }
 button:disabled,
 button:disabled:hover,
@@ -37,7 +39,7 @@ input {
   flex-direction: column;
   align-items: center;
   min-height: 85.5vh;
-  background-color: #f5f5f5;
+  background-color:var(--light-grayish-cyan);
 }
 .pageContainer {
   display: flex;
@@ -135,4 +137,16 @@ input {
   margin: 0 15%;
   list-style: none;
   flex-wrap: wrap;
+}
+.wordCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 220px;
+  height: 262px;
+  margin: 20px 30px;
+  /* padding: 0 10px; */
+  box-shadow: 0 8px 48px 0px rgba(0, 0, 0, 25%);
+  transition: 0.3s;
 }

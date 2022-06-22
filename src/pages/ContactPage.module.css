@@ -21,7 +21,7 @@
 .formContainer input {
   color: var(--dark-gray);
   font-size: 14px;
-  opacity: 1;
+  opacity: 0.4;
   outline: none;
   border: 0;
 }

@@ -11,14 +11,14 @@
 .spinner:after {
   width: 2em;
   height: 4em;
-  background: #ffffff;
+  background:  var(--dark-green);
   animation: load1 1s infinite ease-in-out;
   margin: 0 50px;
 }
 .spinner {
   position: relative;
   transform: translateZ(0);
-  color: #ffffff;
+  color: var(--dark-green);
   margin: 88px auto;
   font-size: 11px;
   animation-delay: -0.16s;

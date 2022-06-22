@@ -4,7 +4,7 @@
     width: 60%;
     height: 120px;
     justify-content: center;
-    background-color: #ecf0f1;
+    background-color: var(--light-grayish-cyan);
     padding: 15px 20%;
     font-family: 'Montserrat', sans-serif;
   }

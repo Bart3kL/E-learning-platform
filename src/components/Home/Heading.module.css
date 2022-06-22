@@ -6,14 +6,13 @@
 }
 .headingWrapper {
   display: flex;
-  flex-basis: 680px;
   flex-direction: column;
   text-align: center;
-  font-size: 6rem;
+  font-size: 5rem;
   line-height: 110px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: var(--white);
-  font-weight: normal;
+  font-weight: 400;
 }
 .headingFirstWord {
   padding-bottom: 5px;
