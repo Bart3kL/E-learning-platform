@@ -11,6 +11,7 @@ const CategoryPage = (props) => {
       id: key,
       categoryName: props.level.categoryName[key].name,
       subcategory: props.level.categoryName[key].podkategorie,
+      categoryImage: props.level.categoryName[key].image,
     });
   }
   return (

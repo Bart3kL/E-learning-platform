@@ -15,7 +15,7 @@ const DictionaryPage = ({ level }) => {
         <ul className={styles.levelCards}>
           {level.map((level) => (
             <li key={level.level} className={styles.levelCard}>
-              <NavLink to={`/slownik/${level.level}`}>
+              <NavLink to={`/slownik/${level.level}`} className='levelLink'>
                 <LevelCard level={level.level} img={level.image} />
               </NavLink>
             </li>

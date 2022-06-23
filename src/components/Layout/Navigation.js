@@ -32,10 +32,25 @@ const Navigation = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/slownik" className={activePage}>
+            <NavLink to="/slownik">
               Słownik
               <IoIosArrowDown className={styles.navArrow} />
             </NavLink>
+            {/* <ul className={styles.dictionaryPages}>
+              <li className={styles.dictionarySubpage}>
+                <NavLink to="/slownik" className={styles.dictionarySubpageLink}>
+                  Słownik
+                </NavLink>
+              </li>
+              <li className={styles.dictionarySubpage}>
+                <NavLink
+                  to="/slownik/dodaj-slowo"
+                  className={styles.dictionarySubpageLink}
+                >
+                  Dodaj słowo
+                </NavLink>
+              </li>
+            </ul> */}
           </li>
           <li>
             <NavLink to="/gramatyka" className={activePage}>

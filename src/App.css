@@ -45,7 +45,9 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 85.5vh;
+  width: 100%;
+  justify-content: center;
+  min-height: 70.1vh;
   background-color: var(--white);
 }
 .textAnimation {
@@ -108,7 +110,7 @@ input {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 70vh;
+  min-height: 70.1vh;
 }
 
 .cardLink {
@@ -129,7 +131,9 @@ input {
   border-radius: 25px;
   background-color: var(--very-light-gray);
 }
-
+.levelLink{
+text-decoration: none;
+}
 .cards {
   display: flex;
   justify-content: center;

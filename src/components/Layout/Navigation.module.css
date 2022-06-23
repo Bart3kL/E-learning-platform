@@ -62,7 +62,26 @@
   margin: 2px 0 0 2px;
 }
 
-
-
-
-
+/* musze dodac klase w navLink bo jest samo a i reaguje mi na podstrony */
+/* .dictionaryPages {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  background-color: red;
+}
+.dictionaryPages li{
+  display: flex;
+  flex-wrap: wrap;
+width: 150px;
+padding: 0;
+margin: 0;
+}
+.dictionaryPages  li a{
+width: 100%;
+margin: 0;
+padding: 0;
+} */
