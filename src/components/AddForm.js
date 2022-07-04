@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ModalWindow from '../../Layout/ModalWindow';
-import { modalActions } from '../../../store/auth';
-import styles from './AddWordForm.module.css';
+import ModalWindow from './Layout/ModalWindow';
+import { modalActions } from '../store/auth';
+import styles from './AddForm.module.css';
 
-const AddWordForm = ({word}) => {
+const AddForm = ({ word, type, name }) => {
   const dispatch = useDispatch();
   const modalWindow = useSelector((state) => state.modal.modalWindow);
   let formIsValid = false;
@@ -38,13 +38,17 @@ const AddWordForm = ({word}) => {
   }
   const submitHandler = (e) => {
     e.preventDefault();
-    word(enteredWord)
+    word(enteredWord);
     fetch(
-      'https://english-page-7aa3f-default-rtdb.europe-west1.firebasedatabase.app/addedWords.json',
+      `${
+        type === 'phrases'
+          ? 'https://english-page-7aa3f-default-rtdb.europe-west1.firebasedatabase.app/addedPhrases.json'
+          : 'https://english-page-7aa3f-default-rtdb.europe-west1.firebasedatabase.app/addedWords.json'
+      }`,
       {
         method: 'POST',
         body: JSON.stringify({
-          word: enteredWord,
+          item: enteredWord,
           translation: enteredTranslation,
         }),
       }
@@ -71,7 +75,7 @@ const AddWordForm = ({word}) => {
           htmlFor="word"
           className={`${styles.addWordInput} firstAnimation`}
         >
-          <p className={styles.inputName}>Słowo</p>
+          <p className={styles.inputName}>{name}</p>
           <input
             type="name"
             id="word"
@@ -101,7 +105,10 @@ const AddWordForm = ({word}) => {
           )}
         </label>
 
-        <button className={styles.addWordFormBtn} disabled={!formIsValid}>
+        <button
+          className={`${styles.addWordFormBtn} firstAnimation`}
+          disabled={!formIsValid}
+        >
           Dodaj
         </button>
       </form>
@@ -109,4 +116,4 @@ const AddWordForm = ({word}) => {
   );
 };
 
-export default AddWordForm;
+export default AddForm;

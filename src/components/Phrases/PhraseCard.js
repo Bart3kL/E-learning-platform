@@ -1,7 +1,8 @@
 import { AiFillPlusCircle } from 'react-icons/ai';
 
 import styles from './PhraseCard.module.css';
-const PhraseCard = ({ phrase }) => {
+const PhraseCard = ({ phrase, type }) => {
+  console.log(phrase.item, phrase.translation);
   return (
     <div className={styles.phraseCard}>
       <div className={styles.actions}>
@@ -9,8 +10,12 @@ const PhraseCard = ({ phrase }) => {
           <AiFillPlusCircle />
         </div>
       </div>
-      <div className={styles.phrase}>{phrase.phrase}</div>
-      <div className={styles.phrase + ' ' + styles.phraseTranslation}>{phrase.translation}</div>
+      <div className={styles.phrase}>
+        {type === 'phrases' ? `${phrase.item}` : phrase.phrase}
+      </div>
+      <div className={styles.phrase + ' ' + styles.phraseTranslation}>
+        {phrase.translation}
+      </div>
     </div>
   );
 };

@@ -2,9 +2,9 @@ import Header from '../../../components/Layout/Header';
 import AddForm from '../../../components/AddForm';
 import AddedItems from '../../../components/AddedItems'
 import { useState } from 'react';
-import styles from './AddWordPage.module.css';
+import styles from './AddPhrasePage.module.css';
 
-const AddWordPage = () => {
+const AddPhrasePage = () => {
   const [newFetch, setNewFetch] = useState();
   const addedWord = (word) => {
     setNewFetch(word);
@@ -16,11 +16,11 @@ const AddWordPage = () => {
         text="Możesz stworzyć swój własny słownik"
       />
       <section className={styles.addWordContainer}>
-        <AddForm word={addedWord} name='Słowo'/>
-        <AddedItems newFetch={newFetch} />
+        <AddForm word={addedWord} type='phrases' name='Zwrot'/>
+        <AddedItems newFetch={newFetch} type='phrases'/>
       </section>
     </div>
   );
 };
 
-export default AddWordPage;
+export default AddPhrasePage;

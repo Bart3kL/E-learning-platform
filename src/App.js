@@ -15,6 +15,7 @@ import AddWordPage from './pages/Dictionary/AddWord/AddWordPage';
 // ------------------------------------------------------------------
 import PhrasesPage from './pages/Phrases/PhrasesPage';
 import ListPhrasesPage from './pages/Phrases/ListPhrasesPage';
+import AddPhrasePage from './pages/Phrases/AddPhrase/AddPhrasePage';
 // ------------------------------------------------------------------
 import './App.css';
 
@@ -114,6 +115,7 @@ function App() {
         ))}
         <Route path="gramatyka" />
         <Route path="zwroty" element={<PhrasesPage phrases={phrases} />} />
+        <Route path="dodaj-zwrot" element={<AddPhrasePage/>} />
         {phrases.map((phrase) => (
           <Route
             path={`/zwroty/${phrase.id}`}
