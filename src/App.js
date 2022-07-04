@@ -17,6 +17,8 @@ import PhrasesPage from './pages/Phrases/PhrasesPage';
 import ListPhrasesPage from './pages/Phrases/ListPhrasesPage';
 import AddPhrasePage from './pages/Phrases/AddPhrase/AddPhrasePage';
 // ------------------------------------------------------------------
+import GrammarPage from './pages/Grammar/GrammarPage';
+// ------------------------------------------------------------------
 import './App.css';
 
 function App() {
@@ -67,6 +69,29 @@ function App() {
       }
     })();
   }, [dispatch]);
+
+  const [grammar, setGrammar] = useState([]);
+  useEffect(() => {
+    (async function () {
+      const response = await fetch(
+        `https://english-page-7aa3f-default-rtdb.europe-west1.firebasedatabase.app/grammar.json`
+      );
+      const data = await response.json();
+
+      const grammar = [];
+
+      for (const key in data) {
+        grammar.push({
+          id: key,
+          name: data[key].name,
+          image: data[key].image,
+          times: data[key].rodzaje,
+        });
+
+        setGrammar(grammar);
+      }
+    })();
+  }, [dispatch]);
   return (
     <Layout>
       <Routes>
@@ -113,9 +138,9 @@ function App() {
             ))}
           </Fragment>
         ))}
-        <Route path="gramatyka" />
+        <Route path="gramatyka" element={<GrammarPage grammar={grammar} />} />
         <Route path="zwroty" element={<PhrasesPage phrases={phrases} />} />
-        <Route path="dodaj-zwrot" element={<AddPhrasePage/>} />
+        <Route path="dodaj-zwrot" element={<AddPhrasePage />} />
         {phrases.map((phrase) => (
           <Route
             path={`/zwroty/${phrase.id}`}

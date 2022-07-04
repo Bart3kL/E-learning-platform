@@ -12,8 +12,8 @@ const AddPhrasePage = () => {
   return (
     <div className="pageContainer">
       <Header
-        header="Twój słownik"
-        text="Możesz stworzyć swój własny słownik"
+        header="Twoje zwroty"
+        text="Możesz dodać swoje własne zwroty."
       />
       <section className={styles.addWordContainer}>
         <AddForm word={addedWord} type='phrases' name='Zwrot'/>

@@ -14,7 +14,6 @@ const Navigation = () => {
   const logoutHandler = () => {
     dispatch(authActions.logged());
   };
-  console.log(pathname);
 
   let activePhrases;
 

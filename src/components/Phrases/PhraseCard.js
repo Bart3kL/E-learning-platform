@@ -2,7 +2,6 @@ import { AiFillPlusCircle } from 'react-icons/ai';
 
 import styles from './PhraseCard.module.css';
 const PhraseCard = ({ phrase, type }) => {
-  console.log(phrase.item, phrase.translation);
   return (
     <div className={styles.phraseCard}>
       <div className={styles.actions}>

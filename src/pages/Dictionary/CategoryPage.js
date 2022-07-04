@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from '../../components/Layout/Header';
-import Card from '../../components/Dictionary/Card';
+import Card from '../../components/Card';
 import Spinner from '../../components/Layout/Spinner';
 const CategoryPage = (props) => {
   const spinner = useSelector((state) => state.spinner.activation);
