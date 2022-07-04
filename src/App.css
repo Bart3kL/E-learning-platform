@@ -22,7 +22,7 @@ button:disabled:active {
 }
 input {
   height: 40px;
-  background: #ffffff;
+  background: var(--white);
   opacity: 0.1;
   width: 100%;
   padding-left: 20px;
@@ -150,7 +150,6 @@ text-decoration: none;
   width: 220px;
   height: 262px;
   margin: 20px 30px;
-  /* padding: 0 10px; */
   box-shadow: 0 8px 48px 0px rgba(0, 0, 0, 25%);
   transition: 0.3s;
 }
@@ -170,4 +169,8 @@ text-decoration: none;
   height: 100vh;
   z-index: 10;
   background: rgba(0, 0, 0, 0.75);
+}
+.underline{
+  border-top: 1px solid var(--white);
+  margin: 0;
 }

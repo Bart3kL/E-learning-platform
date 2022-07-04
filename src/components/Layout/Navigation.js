@@ -25,32 +25,36 @@ const Navigation = () => {
         Edudor
       </Link>
       <nav className={styles.navigation}>
-        <ul>
+        <ul className={styles.pagesList}>
           <li>
             <NavLink to="/nauka" className={activePage}>
               Nauka
             </NavLink>
           </li>
           <li>
-            <NavLink to="/slownik">
+            <span className={styles.dictionaryPage}>
               Słownik
               <IoIosArrowDown className={styles.navArrow} />
-            </NavLink>
-            {/* <ul className={styles.dictionaryPages}>
-              <li className={styles.dictionarySubpage}>
-                <NavLink to="/slownik" className={styles.dictionarySubpageLink}>
-                  Słownik
-                </NavLink>
-              </li>
-              <li className={styles.dictionarySubpage}>
-                <NavLink
-                  to="/slownik/dodaj-slowo"
-                  className={styles.dictionarySubpageLink}
-                >
-                  Dodaj słowo
-                </NavLink>
-              </li>
-            </ul> */}
+              <ul className={`${styles.dictionaryPages} firstAnimation`}>
+                <li className={styles.dictionarySubpage}>
+                  <NavLink
+                    to="/slownik"
+                    className={styles.dictionarySubpageLink}
+                  >
+                    Słownik
+                  </NavLink>
+                </li>
+                <p className="underline"></p>
+                <li className={styles.dictionarySubpage}>
+                  <NavLink
+                    to="dodaj-slowo"
+                    className={styles.dictionarySubpageLink}
+                  >
+                    Dodaj słowo
+                  </NavLink>
+                </li>
+              </ul>
+            </span>
           </li>
           <li>
             <NavLink to="/gramatyka" className={activePage}>

@@ -18,12 +18,17 @@
 .navigation {
   display: flex;
   flex-basis: 50%;
+  height: 80px;
   justify-content: center;
 }
-.navigation ul {
+.navigation .pagesList {
   display: flex;
   flex-basis: 100%;
   list-style: none;
+}
+.navigation ul li {
+  display: flex;
+  align-items: center;
 }
 .navigation ul li a {
   display: flex;
@@ -35,6 +40,19 @@
   text-decoration: none;
   font-family: 'Lato', sans-serif;
 }
+.dictionaryPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  margin: 0 15px;
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+}
 .authBtns {
   display: flex;
   flex-basis: 25%;
@@ -44,7 +62,6 @@
 .authBtn {
   padding: 10px 35px;
   border: 0;
-  /* font-weight: bold; */
   font-size: 1.6rem;
   color: var(--white);
   background-color: var(--green);
@@ -61,27 +78,36 @@
 .navArrow {
   margin: 2px 0 0 2px;
 }
-
-/* musze dodac klase w navLink bo jest samo a i reaguje mi na podstrony */
-/* .dictionaryPages {
+.dictionaryPages {
+  display: none;
   position: absolute;
-  display: flex;
   flex-direction: column;
-  width: 150px;
-  height: 100px;
-  margin: 0;
+  width: 170px;
+  height: 70px;
   padding: 0;
-  background-color: red;
+  margin-left: 55px;
+  margin-top: 125px;
+  color: var(--white);
+  background-color: var(--very-dark-desaturated-blue);
 }
-.dictionaryPages li{
+.dictionarySubpage {
   display: flex;
-  flex-wrap: wrap;
-width: 150px;
-padding: 0;
-margin: 0;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 50%;
+  line-height: 35px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
-.dictionaryPages  li a{
-width: 100%;
-margin: 0;
-padding: 0;
-} */
+.dictionarySubpageLink {
+  width: 100%;
+  font-size: 1.5rem !important;
+}
+.dictionarySubpage:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.dictionaryPage:hover .dictionaryPages {
+  display: flex;
+}

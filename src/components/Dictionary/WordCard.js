@@ -1,7 +1,7 @@
 import { AiFillSound, AiFillPlusCircle } from 'react-icons/ai';
 import { useState } from 'react';
 import styles from './WordCard.module.css';
-const WordCard = ({ word }) => {
+const WordCard = ({ word}) => {
   const audio = new Audio(word.sound);
 
   const [showExample, setShowExample] = useState(false);
@@ -37,14 +37,14 @@ const WordCard = ({ word }) => {
                 styles.actionsContainer + ' ' + styles.actionsContainerSound
               }
             >
-              <AiFillSound  onClick={playSoundHandler} />
+              <AiFillSound onClick={playSoundHandler} />
             </div>
             <div
               className={
                 styles.actionsContainer + ' ' + styles.actionsContainerWord
               }
             >
-              <AiFillPlusCircle  />
+              <AiFillPlusCircle />
             </div>
           </div>
           <div className={styles.word}>{word.word}</div>

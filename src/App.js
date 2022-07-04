@@ -11,6 +11,7 @@ import DictionaryPage from './pages/Dictionary/DictionaryPage';
 import CategoryPage from './pages/Dictionary/CategoryPage';
 import SubcategoryPage from './pages/Dictionary/SubcategoryPage';
 import WordsPage from './pages/Dictionary/WordsPage';
+import AddWordPage from './pages/Dictionary/AddWord/AddWordPage';
 // ------------------------------------------------------------------
 import PhrasesPage from './pages/Phrases/PhrasesPage';
 import ListPhrasesPage from './pages/Phrases/ListPhrasesPage';
@@ -74,6 +75,7 @@ function App() {
         <Route path="logowanie" element={<LoginPage />} />
         <Route path="nauka" />
         <Route path="slownik" element={<DictionaryPage level={levels} />} />
+        <Route path="dodaj-slowo" element={<AddWordPage />} />
         {levels.map((level) => (
           <Fragment key={level.level}>
             <Route
