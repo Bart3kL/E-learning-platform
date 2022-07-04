@@ -9,13 +9,27 @@ import styles from './Navigation.module.css';
 const Navigation = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-
   const logged = useSelector((state) => state.auth.logged);
 
   const logoutHandler = () => {
     dispatch(authActions.logged());
   };
+  console.log(pathname);
 
+  let activePhrases;
+
+  if (pathname === '/zwroty' || pathname === '/dodaj-zwrot') {
+    activePhrases = `${styles.activePageUnderline}`;
+  } else {
+    activePhrases = '';
+  }
+  let activeDictionary;
+
+  if ( pathname === '/slownik'|| pathname === '/dodaj-slowo') {
+    activeDictionary = `${styles.activePageUnderline}`;
+  } else {
+    activeDictionary = '';
+  }
   const activePage = (data) =>
     data.isActive ? `${styles.activePageUnderline}` : '';
 
@@ -31,8 +45,8 @@ const Navigation = () => {
               Nauka
             </NavLink>
           </li>
-          <li>
-            <span className={styles.dictionaryPage}>
+          <li className={styles.subPages}>
+            <span className={`${styles.dictionaryPage} ${activeDictionary}`}>
               Słownik
               <IoIosArrowDown className={styles.navArrow} />
               <ul className={`${styles.dictionaryPages} firstAnimation`}>
@@ -61,11 +75,30 @@ const Navigation = () => {
               Gramatyka
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/zwroty" className={activePage}>
+          <li className={styles.subPages}>
+            <span className={`${styles.dictionaryPage} ${activePhrases}`}>
               Zwroty
               <IoIosArrowDown className={styles.navArrow} />
-            </NavLink>
+              <ul className={`${styles.dictionaryPages} firstAnimation`}>
+                <li className={styles.dictionarySubpage}>
+                  <NavLink
+                    to="/zwroty"
+                    className={styles.dictionarySubpageLink}
+                  >
+                    Zwroty
+                  </NavLink>
+                </li>
+                <p className="underline"></p>
+                <li className={styles.dictionarySubpage}>
+                  <NavLink
+                    to="dodaj-zwrot"
+                    className={styles.dictionarySubpageLink}
+                  >
+                    Dodaj zwrot
+                  </NavLink>
+                </li>
+              </ul>
+            </span>
           </li>
           <li>
             <NavLink to="/kontakt" className={activePage}>
