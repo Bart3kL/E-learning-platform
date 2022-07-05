@@ -2,6 +2,8 @@ import Header from '../../components/Layout/Header';
 import { Link } from 'react-router-dom';
 import Card from '../../components/Card';
 const GrammarPage = ({ grammar }) => {
+
+
   return (
     <div className="pageContainer">
       <Header
@@ -12,7 +14,7 @@ const GrammarPage = ({ grammar }) => {
         <ul className="cards">
           {grammar.map((gram) => (
             <li key={gram.id}>
-              <Link to="/" className="cardLink">
+              <Link to={`./${gram.id}`} className="cardLink firstAnimation">
                 <Card name={gram.name} image={gram.image} amount={gram.times} />
               </Link>
             </li>

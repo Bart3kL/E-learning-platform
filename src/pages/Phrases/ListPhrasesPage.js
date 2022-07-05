@@ -17,7 +17,7 @@ const ListPhrases = ({ phrases }) => {
       <div className="cardContainer">
         <ul className="cards">
           {phrasesList.map((phrase) => (
-            <li key={phrase.word} className="wordCard phraseCard">
+            <li key={phrase.phrase} className="wordCard phraseCard firstAnimation">
               <PhraseCard phrase={phrase} />
             </li>
           ))}

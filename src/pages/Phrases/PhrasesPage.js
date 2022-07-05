@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Header from '../../components/Layout/Header';
-import CategoryCard from '../../components/Phrases/CategoryCard';
+import CategoryCard from '../../components/RectangleCard';
 import styles from './PhrasePage.module.css';
 
 const PhrasesPage = ({ phrases }) => {
@@ -13,10 +13,10 @@ const PhrasesPage = ({ phrases }) => {
       <div className="cardContainer">
         <ul className="cards">
           {phrases.map((phrase) => (
-            <li key={phrase.id}>
+            <li key={phrase.id} className='firstAnimation'>
               <Link
                 to={`./${phrase.id}`}
-                className={styles.phraseCardLink}
+                className='rectangleCardLink'
               >
                 <CategoryCard phrase={phrase} />
               </Link>

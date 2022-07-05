@@ -18,6 +18,8 @@ import ListPhrasesPage from './pages/Phrases/ListPhrasesPage';
 import AddPhrasePage from './pages/Phrases/AddPhrase/AddPhrasePage';
 // ------------------------------------------------------------------
 import GrammarPage from './pages/Grammar/GrammarPage';
+import GrammarCategoryPage from './pages/Grammar/GrammarCategoryPage';
+import GrammarNotesPage from './pages/Grammar/GrammarNotesPage';
 // ------------------------------------------------------------------
 import './App.css';
 
@@ -139,11 +141,33 @@ function App() {
           </Fragment>
         ))}
         <Route path="gramatyka" element={<GrammarPage grammar={grammar} />} />
+        {grammar.map((gram) => (
+          <Fragment key={gram.id}>
+            <Route
+              path={`gramatyka/${gram.id}/`}
+              key={gram.id}
+              element={<GrammarCategoryPage el={gram.times} />}
+            />
+            <Fragment>
+              {Object.entries(gram.times).map(([el]) => (
+                // console.log(gram.times.el)
+                <Route
+                  path={`gramatyka/${gram.id}/${el}`}
+                  key={el}
+                  element={<GrammarNotesPage el={gram.times[el]} />}
+                />
+                // console.log(el)
+              ))}
+              
+            </Fragment>
+          </Fragment>
+        ))}
         <Route path="zwroty" element={<PhrasesPage phrases={phrases} />} />
         <Route path="dodaj-zwrot" element={<AddPhrasePage />} />
         {phrases.map((phrase) => (
           <Route
             path={`/zwroty/${phrase.id}`}
+            key={phrase.id}
             element={<ListPhrasesPage phrases={phrase.phrases} />}
           />
         ))}

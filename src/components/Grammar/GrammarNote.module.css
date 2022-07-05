@@ -1,0 +1,50 @@
+.grammarContainer {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 70.1vh;
+  list-style: none;
+}
+.column {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 24%;
+  border-right: 3px solid var(--light-gray);
+  border-left: 3px solid var(--light-gray);
+}
+.noteName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 2rem;
+  height: 70px;
+  font-weight: bold;
+  border-bottom: 3px solid var(--light-gray);
+}
+.detail {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 90%;
+  padding: 15px;
+  border-bottom: 2px solid var(--light-gray);
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 1.6rem;
+  padding: 5px 0;
+  font-weight: 400;
+}
+.text {
+  padding: 5px 0;
+}

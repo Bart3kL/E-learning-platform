@@ -7,7 +7,8 @@ import styles from './AddedItems.module.css';
 const AddedItems = ({ newFetch, type }) => {
   const [spinner, setSpinner] = useState(false);
   const [items, setItems] = useState([]);
-  console.log(type);
+  
+  
   useEffect(() => {
     setSpinner(true);
     (async function () {
@@ -43,7 +44,7 @@ const AddedItems = ({ newFetch, type }) => {
             <li
               key={item.item}
               className={
-                type === 'phrases' ? `wordCard phraseCard` : styles.wordCard
+                type === 'phrases' ? `wordCard phraseCard firstAnimation` : `${styles.wordCard} firstAnimation`
               }
             >
               {type === 'phrases' ? (

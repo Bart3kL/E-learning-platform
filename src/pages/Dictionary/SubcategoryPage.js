@@ -20,7 +20,7 @@ const SubcategoryPage = ({ subcategory }) => {
       <div className="cardContainer">
         <ul className="cards">
           {loadedMovies.map((subcategory) => (
-            <li key={subcategory.id}>
+            <li key={subcategory.id} className='firstAnimation'>
               <NavLink to={`./${subcategory.id}`} className="cardLink">
                 <CategoryCard
                   name={subcategory.subcategoryName}

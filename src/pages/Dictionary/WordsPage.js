@@ -21,7 +21,7 @@ const WordsPage = ({ words }) => {
       <div className="pageContainer">
         <ul className="cards">
           {loadedMovies.map((word) => (
-            <li key={word.word} className='wordCard'>
+            <li key={word.word} className='wordCard firstAnimation'>
               <WordCard word={word} />
             </li>
           ))}

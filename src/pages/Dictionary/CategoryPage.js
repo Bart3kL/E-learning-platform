@@ -27,7 +27,7 @@ const CategoryPage = (props) => {
           <div className="cardContainer">
             <ul className="cards">
               {loadedMovies.map((category) => (
-                <li key={category.id}>
+                <li key={category.id} className='firstAnimation'>
                   <NavLink to={`./${category.id}`} className="cardLink">
                     <Card
                       name={category.categoryName}
