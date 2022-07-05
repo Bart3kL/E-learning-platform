@@ -31,6 +31,28 @@ const GrammarNote = ({ note }) => {
             <div className={styles.header}>{note.header1}</div>
             <div className={styles.text}>{note.text1}</div>
           </div>
+          <div className={styles.detail}>
+            <div className={styles.header}>{note.header2}</div>
+            <div className={styles.text}>{note.text2}</div>
+            <div className={styles.example}>{note.header3}</div>
+            <div className={styles.exampleText}>{note.text3}</div>
+          </div>
+          <div className={styles.detail}>
+            <div className={styles.header}>{note.header4}</div>
+            <div className={styles.text}>{note.text4}</div>
+            <div className={styles.example}>{note.header5}</div>
+            <div className={styles.exampleText}>{note.text5}</div>
+          </div>
+          <div className={styles.detail}>
+            <div className={styles.header}>{note.header6}</div>
+            <div className={styles.text}>{note.text6}</div>
+            <div className={styles.example}>{note.header7}</div>
+            <div className={styles.exampleText}>{note.text7}</div>
+          </div>
+          <div className={styles.detail}>
+            <div className={styles.header}>{note.header8}</div>
+            <div className={styles.text}>{note.text8}</div>
+          </div>
         </li>
       ))}
     </ul>
