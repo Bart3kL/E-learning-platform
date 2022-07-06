@@ -1,0 +1,44 @@
+.scienceNav {
+  display: flex;
+  width: 25vh;
+  border-top: 2px solid var(--white);
+  border-radius: 0 0 50px 0;
+  background-color: var(--very-dark-desaturated-blue);
+}
+.scienceNavList {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.scienceNavPage {
+  height: 80px;
+  width: 100%;
+  border-bottom: 2px solid var(--white);
+}
+.scienceNavLink {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: 1s;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 85%;
+  height: 100%;
+  padding-left: 15%;
+  cursor: pointer;
+}
+.scienceNavIcon {
+  font-size: 3rem;
+  padding-right: 5%;
+}
+.scienceNavPage:hover .scienceNavLink {
+  background-color: var(--white);
+  color: var(--very-dark-desaturated-blue);
+  width: 84%;
+  border-right: 2px solid var(--very-dark-desaturated-blue);
+}
+/* .activePage{
+
+} */

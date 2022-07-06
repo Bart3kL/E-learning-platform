@@ -131,8 +131,8 @@ input {
   border-radius: 25px;
   background-color: var(--very-light-gray);
 }
-.levelLink{
-text-decoration: none;
+.levelLink {
+  text-decoration: none;
 }
 .cards {
   display: flex;
@@ -170,11 +170,11 @@ text-decoration: none;
   z-index: 10;
   background: rgba(0, 0, 0, 0.75);
 }
-.underline{
+.underline {
   border-top: 1px solid var(--white);
   margin: 0;
 }
-.rectangleCardLink{
+.rectangleCardLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -186,8 +186,16 @@ text-decoration: none;
   transition: 0.3s;
   text-decoration: none;
 }
-.rectangleCardLink:hover{
+.rectangleCardLink:hover {
   cursor: pointer;
   border-radius: 25px;
   background-color: var(--very-light-gray);
+}
+.science {
+  display: flex;
+  min-height: 85.6vh;
+  background-color: var(--white);
+}
+.sciencePages {
+  width: 75vh;
 }

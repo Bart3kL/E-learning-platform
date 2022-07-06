@@ -4,8 +4,6 @@ const GrammarNotesPage = ({ el }) => {
   return (
     <div className="pageContainer">
       <Header header={el.name} text={`${el.name} - notatki`} />
-
-     { console.log(el)}
       <GrammarNote note={el.rodzaje} />
     </div>
   );

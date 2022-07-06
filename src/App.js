@@ -21,6 +21,10 @@ import GrammarPage from './pages/Grammar/GrammarPage';
 import GrammarCategoryPage from './pages/Grammar/GrammarCategoryPage';
 import GrammarNotesPage from './pages/Grammar/GrammarNotesPage';
 // ------------------------------------------------------------------
+import SciencePage from './pages/Science/SciencePage';
+import Lessons from './components/Science/Lessons';
+import Exerc
+// ------------------------------------------------------------------
 import './App.css';
 
 function App() {
@@ -101,7 +105,15 @@ function App() {
         <Route path="/" element={<Navigate replace to="edudor" />} />
         <Route path="edudor" element={<HomePage />} />
         <Route path="logowanie" element={<LoginPage />} />
-        <Route path="nauka" />
+        <Route path="nauka" element={<SciencePage />}/>
+        <Route path="lekcje" element={<Lessons />} />
+        <Route path="powtorki" />
+        <Route path="cwiczenia" />
+        <Route path="fiszki" />
+        <Route path="notatki" />
+        <Route path="nauka-ze-sluchu" />
+        <Route path="dopasowywanie" />
+
         <Route path="slownik" element={<DictionaryPage level={levels} />} />
         <Route path="dodaj-slowo" element={<AddWordPage />} />
         {levels.map((level) => (
@@ -158,7 +170,6 @@ function App() {
                 />
                 // console.log(el)
               ))}
-              
             </Fragment>
           </Fragment>
         ))}
