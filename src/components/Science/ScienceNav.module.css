@@ -1,6 +1,7 @@
 .scienceNav {
   display: flex;
-  width: 25vh;
+  width: 250px;
+  min-width: 250px;
   border-top: 2px solid var(--white);
   border-radius: 0 0 50px 0;
   background-color: var(--very-dark-desaturated-blue);
@@ -38,8 +39,4 @@
   color: var(--very-dark-desaturated-blue);
   width: 84%;
   border-right: 2px solid var(--very-dark-desaturated-blue);
-}
-.activeePage{
-background-color: red;
-font-size: 3rem;
 }

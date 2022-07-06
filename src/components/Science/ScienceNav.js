@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { MdPlayLesson } from 'react-icons/md';
 import { RiFindReplaceLine } from 'react-icons/ri';
 import { BiBookAlt } from 'react-icons/bi';
@@ -10,7 +10,6 @@ import { SiBlockchaindotcom } from 'react-icons/si';
 import styles from './ScienceNav.module.css';
 
 const ScienceNav = () => {
-  const activePage = (data) => (data.isActive ? `${styles.activeePage}` : ' ');
 
   return (
     <nav className={styles.scienceNav}>
@@ -18,7 +17,7 @@ const ScienceNav = () => {
         <li className={styles.scienceNavPage}>
           <NavLink
             to="/lekcje"
-            className={activePage + ' ' + styles.scienceNavLink}
+            className={styles.scienceNavLink}
           >
             <MdPlayLesson className={styles.scienceNavIcon} />
             Lekcje

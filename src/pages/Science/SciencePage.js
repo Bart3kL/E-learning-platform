@@ -1,10 +1,12 @@
 import ScienceNav from '../../components/Science/ScienceNav';
+import Science from '../../components/Science/Science';
+
 const SciencePage = (props) => {
   return (
     <>
       <div className="science">
         <ScienceNav />
-        <div className="sciencePages">{props.children}</div>
+          <Science/>
       </div>
     </>
   );

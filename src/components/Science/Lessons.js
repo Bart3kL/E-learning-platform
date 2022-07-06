@@ -1,4 +1,7 @@
 import ScienceNav from './ScienceNav';
+
+import styles from './Lessons.module.css'
+
 const Lessons = () => {
   return (
     <div className="science">

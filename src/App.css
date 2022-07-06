@@ -199,3 +199,15 @@ input {
 .sciencePages {
   width: 75vh;
 }
+.active {
+  width: 84%;
+  background-color: var(--white);
+  color: var(--very-dark-desaturated-blue);
+  border-right: 2px solid var(--very-dark-desaturated-blue);
+}
+.scienceContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2%;
+}
