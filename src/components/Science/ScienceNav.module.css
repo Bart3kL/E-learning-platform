@@ -39,6 +39,7 @@
   width: 84%;
   border-right: 2px solid var(--very-dark-desaturated-blue);
 }
-/* .activePage{
-
-} */
+.activeePage{
+background-color: red;
+font-size: 3rem;
+}

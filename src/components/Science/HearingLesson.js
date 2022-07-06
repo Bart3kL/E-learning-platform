@@ -1,8 +1,11 @@
-
-// import styles from './HearingLesson.module.css'
+import ScienceNav from './ScienceNav';
+import styles from './HearingLesson.module.css'
 
 const HearingLesson = () => {
-    return ( <>hearinglesson</> );
+    return (     <div className="science">
+    <ScienceNav />
+    <section className="sciencePages">hearinglesson</section>
+  </div> );
 }
  
 export default HearingLesson;
