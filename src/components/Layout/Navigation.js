@@ -60,10 +60,10 @@ const Navigation = () => {
                 <p className="underline"></p>
                 <li className={styles.dictionarySubpage}>
                   <NavLink
-                    to="dodaj-slowo"
+                    to="twoje-slowka"
                     className={styles.dictionarySubpageLink}
                   >
-                    Dodaj słowo
+                    Twoje słówka
                   </NavLink>
                 </li>
               </ul>

@@ -34,6 +34,7 @@ const ModalWindow = (props) => {
 
   const closeModalWindowHandler = () => {
     dispatch(modalActions.hideModalWindow());
+    // console.log('s');
   };
   return (
     <>

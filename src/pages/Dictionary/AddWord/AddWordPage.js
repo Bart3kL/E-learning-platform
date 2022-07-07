@@ -12,8 +12,8 @@ const AddWordPage = () => {
   return (
     <div className="pageContainer">
       <Header
-        header="Twój słownik"
-        text="Możesz stworzyć swój własny słownik"
+        header="Twoje słówka"
+        text="Dodaj słowa, których nie umiesz (zostaną dodane do fiszek i powtórek)."
       />
       <section className={styles.addWordContainer}>
         <AddForm word={addedWord} name='Słowo'/>

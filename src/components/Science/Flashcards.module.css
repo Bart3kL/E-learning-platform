@@ -25,6 +25,8 @@
 }
 .flascard {
   box-sizing: border-box;
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,9 +35,8 @@
   width: 60%;
   min-width: 542px;
   height: 400px;
-  border: 1px solid var(--very-dark-gray);
-  animation: flip-2-hor-bottom-2 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  cursor: pointer;
+  box-shadow: 0 8px 35px 0px rgb(0 0 0 / 45%);
+  border-radius: 25px;
 }
 .flashcardHint {
   display: flex;
@@ -43,13 +44,14 @@
   width: 100%;
   font-size: 1.4rem;
   height: 20%;
-}
+  cursor: pointer;}
 .flashcardWord {
   display: flex;
   justify-content: center;
+  height: 40%;
   width: 100%;
   font-size: 5rem;
-  height: 40%;
+  cursor: pointer;
 }
 .flashcardChangeWord {
   display: flex;
@@ -57,32 +59,47 @@
   align-items: center;
   width: 50%;
   height: 20%;
+  color: var(--very-dark-grayish-blue);
 }
 .flashcardChange {
+  position: relative;
+  z-index: 203;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 30%;
+  width: 10%;
+  height: 40px;
   font-size: 4rem;
   margin: 0 10%;
   border-radius: 50%;
-  color: var(--very-dark-grayish-blue);
+  transition: color 0.3s;
   cursor: pointer;
 }
-@keyframes flip-2-hor-bottom-2 {
-    0% {
-      -webkit-transform: translateY(0) rotateX(0);
-              transform: translateY(0) rotateX(0);
-      -webkit-transform-origin: 50% 100%;
-              transform-origin: 50% 100%;
-    }
-    100% {
-      -webkit-transform: translateY(100%) rotateX(-180deg);
-              transform: translateY(100%) rotateX(-180deg);
-      -webkit-transform-origin: 50% 0%;
-              transform-origin: 50% 0%;
-    }
+.flascardAmount {
+  font-size: 2rem;
+}
+.flashcardChange:hover {
+  color: var(--green);
+}
+.animationCard {
+  animation: scale-down-center 0.4s  both;
+}
+.animationCard2 {
+  animation: scale-up-center 0.4s  both;
+}
+@keyframes scale-up-center {
+  0% {
+    transform: scale(1);
   }
-  
-  
+  100% {
+    transform: scale(0.98);
+  }
+}
+@keyframes scale-down-center {
+  0% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

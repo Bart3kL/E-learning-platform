@@ -36,7 +36,6 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-
   const [levels, setLevels] = useState([]);
   useEffect(() => {
     (async function () {

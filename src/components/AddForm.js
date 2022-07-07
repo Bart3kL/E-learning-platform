@@ -50,6 +50,7 @@ const AddForm = ({ word, type, name }) => {
         body: JSON.stringify({
           item: enteredWord,
           translation: enteredTranslation,
+          knowledge: 0,
         }),
       }
     )
