@@ -120,7 +120,7 @@ function App() {
         <Route path="nauka-ze-sluchu" element={<HearingLesson />} />
         <Route path="dopasowywanie" element={<MatchWords />} />
         <Route path="slownik" element={<DictionaryPage level={levels} />} />
-        <Route path="dodaj-slowo" element={<AddWordPage />} />
+        <Route path="twoje-slowka" element={<AddWordPage />} />
         {levels.map((level) => (
           <Fragment key={level.level}>
             <Route

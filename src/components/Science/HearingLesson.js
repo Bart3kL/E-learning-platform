@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 const HearingLesson = () => {
   const [randomWordIndex, setRandomWordIndex] = useState(0);
   const [letterIndex, setLetterIndex] = useState(0);
+  const [qualityAnswerText, setQualityAnswerText] = useState('');
   const [words, setWords] = useState([]);
   const [word, setWord] = useState('');
   const [spinner, setSpinner] = useState(true);
@@ -43,21 +44,21 @@ const HearingLesson = () => {
     setWord(e.target.value);
   };
   const checkHandler = () => {
-    setShowWord(true);
     if (words[randomWordIndex].word === word) {
-      console.log(words[randomWordIndex].word, word);
+      setQualityAnswerText('Znakomicie!');
     } else {
-      console.log(words[randomWordIndex].word, word);
+      setQualityAnswerText('Niestety źle!');
     }
+    setShowWord(true);
   };
   const nextWordHandler = () => {
-    setWord(' ');
+    setWord('');
     setShowWord(false);
     setRandomWordIndex(Math.floor(Math.random() * words.length));
   };
   const hintLetterHandler = (props) => {
     setWord(word + `${props[letterIndex]}`);
-    console.log(letterIndex);
+    setQualityAnswerText('Spróbuj bez podpowiedzi!');
     setLetterIndex(letterIndex + 1);
     if (letterIndex === props.length - 1) {
       setShowWord(true);
@@ -74,7 +75,9 @@ const HearingLesson = () => {
         <section className={styles.hearingLesson}>
           {showWord ? (
             <div className={styles.hearingCard}>
-              <h1 className={styles.heading}>Słowo</h1>
+              <h1 className={styles.heading}>
+                {showWord && qualityAnswerText}
+              </h1>
               <div className={styles.hearingIcon}>
                 <AiFillSound className={styles.icon} onClick={soundHandler} />
               </div>

@@ -51,6 +51,7 @@ const AddForm = ({ word, type, name }) => {
           item: enteredWord,
           translation: enteredTranslation,
           knowledge: 0,
+          index: Math.random()
         }),
       }
     )
